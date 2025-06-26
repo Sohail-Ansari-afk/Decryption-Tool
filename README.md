@@ -1,139 +1,165 @@
-# Decryption-Tool
-Custom File Encryption/Decryption Tool 🔐
-This is a simple command-line Python tool for encrypting and decrypting files using AES in CBC mode with PBKDF2 for key derivation. It provides a secure way to protect your sensitive files with a password. ✨
+# 🔐 Custom File Encryption/Decryption Tool
 
-Features
-Symmetric Encryption: Uses AES (Advanced Encryption Standard) in CBC (Cipher Block Chaining) mode. 🔒
+Secure your sensitive files with this simple yet powerful **command-line encryption/decryption tool** built in Python. This script uses **AES encryption** with **PBKDF2 key derivation**, ensuring robust protection through password-based access.
 
-Key Derivation: Employs PBKDF2 with SHA256 and a random salt to securely derive a strong encryption key from your password. 🔑
+---
 
-Random Salt and IV: Generates a unique salt and Initialization Vector (IV) for each encryption, enhancing security. 🎲
+## ✨ Features
 
-File-based Operations: Encrypts an input file to an output file, and decrypts an encrypted file back to its original form. 📁➡️🔒 / 🔒➡️📁
+- 🔒 **Symmetric Encryption**: Uses AES (Advanced Encryption Standard) in CBC (Cipher Block Chaining) mode.
+- 🔑 **Key Derivation**: Utilizes PBKDF2 with SHA256 and random salt for strong password-based key generation.
+- 🎲 **Random Salt & IV**: Each encryption generates a new salt and IV for enhanced security.
+- 📁 **File-based Operations**: Encrypt or decrypt entire files quickly and securely.
+- ⚠️ **Error Handling**: Detects incorrect passwords, missing files, and more with clear error messages.
 
-Error Handling: Includes basic error handling for file not found, incorrect password, and other common issues. ⚠️
+---
 
-Technologies Used
-Python 3.x 🐍
+## 🧰 Technologies Used
 
-cryptography library: Python's leading cryptographic library for secure and efficient crypto operations. 💪
+- 🐍 Python 3.x
+- 📦 [`cryptography`](https://pypi.org/project/cryptography/) - Python’s premier cryptographic library
+- 🔧 Built-in modules: `os`, `secrets`, `hashlib`, `base64`
 
-os, secrets, hashlib, base64 modules: For file system interactions, secure random number generation, hashing, and encoding. 💻
+---
 
-Getting Started
-Follow these steps to set up and use the Encryption/Decryption Tool on your local machine. 🚀
+## 🚀 Getting Started
 
-Prerequisites
-Python 3.7 or newer installed on your system. You can download it from python.org. ✅
+### ✅ Prerequisites
 
-Installation
-Save the Code:
-Save the provided Python code into a file named encryption_tool.py (or any .py name you prefer) in a directory on your computer. 💾
+- Python 3.7 or higher  
+  [Download Python](https://www.python.org/downloads/)
 
-Example:
+---
 
-my_crypto_tools/
-└── encryption_tool.py
+## 🛠️ Installation
 
-Open your Terminal or Command Prompt:
-Navigate to the directory where you saved encryption_tool.py. 🖥️
+### 1. 📥 Save the Script
 
+Save the provided Python code into a file named `encryption_tool.py` (or any `.py` file you prefer):
+
+```
+
+my\_crypto\_tools/
+└── encryption\_tool.py
+
+````
+
+### 2. 💻 Open Terminal
+
+Navigate to your project folder:
+```bash
 cd path/to/my_crypto_tools
+````
 
-Create a Virtual Environment (Recommended):
-It's good practice to create a virtual environment to manage project dependencies and avoid conflicts with your system's Python packages. 🌍
+### 3. 🌍 Create Virtual Environment (Recommended)
 
+```bash
 python -m venv venv
+```
 
-Activate the Virtual Environment:
+Activate it:
 
-On Windows:
+* **Windows**
 
-.\venv\Scripts\activate
+  ```bash
+  .\venv\Scripts\activate
+  ```
 
-On macOS/Linux:
+* **macOS/Linux**
 
-source venv/bin/activate
+  ```bash
+  source venv/bin/activate
+  ```
 
-You should see (venv) at the beginning of your terminal prompt, indicating the virtual environment is active. 👍
+### 4. 📦 Install Dependencies
 
-Install Dependencies:
-This tool relies on the cryptography library. 📦
-
+```bash
 pip install cryptography
+```
 
-How to Use
-Ensure your virtual environment is active before running the script. 🏃‍♀️
+---
 
-Navigate to your project directory in your terminal/command prompt. 📂
+## 🧪 How to Use
 
-Run the script:
+Make sure your virtual environment is active.
 
-python encryption_tool.py
+### 🔐 Encrypt a File
 
-Follow the on-screen prompts: 💬
+1. Run the script:
 
---- Custom File Encryption/Decryption Tool ---
-Choose an action:
-1. Encrypt File
-2. Decrypt File
-Enter your choice (1 or 2):
+   ```bash
+   python encryption_tool.py
+   ```
 
-Encrypting a File 📈
-Choose option 1 for Encryption.
+2. Choose Encryption:
 
-Enter your choice (1 or 2): 1
+   ```
+   --- Custom File Encryption/Decryption Tool ---
+   Choose an action:
+   1. Encrypt File
+   2. Decrypt File
+   Enter your choice (1 or 2): 1
+   ```
 
-Provide the paths:
+3. Provide:
 
-Input file: The full path to the file you want to encrypt. ➡️📄
+   * 📄 Input file path (e.g., `secret.txt`)
+   * 💾 Output file path (e.g., `secret.aes`)
+   * 🔑 Strong password (e.g., `MySecurePassword123!`)
 
-Example: my_document.txt (if in the same directory) or C:\Users\YourUser\Documents\secret_report.pdf
+4. ✅ Success message:
 
-Output file: The desired name and path for the encrypted file. It's common to add an .aes or .enc extension. 💾🔒
+   ```
+   File encrypted successfully: secret.aes
+   ```
 
-Example: my_document.aes or C:\Users\YourUser\Documents\secret_report.pdf.enc
+---
 
-Enter your password:
+### 🔓 Decrypt a File
 
-Crucial: Remember this password! You will need the exact same password to decrypt the file. Choose a strong, unique password. ⚠️🔑
+1. Run the script:
 
-Example interaction:
+   ```bash
+   python encryption_tool.py
+   ```
 
-Enter the path to the file to encrypt: my_secret_data.txt
-Enter the desired output path for the encrypted file (e.g., myfile.aes): my_secret_data.txt.enc
-Enter your encryption password: mySuperSecretPassword123!
-File encrypted successfully: my_secret_data.txt.enc ✨
+2. Choose Decryption:
 
-Decrypting a File 📉
-Choose option 2 for Decryption.
+   ```
+   Enter your choice (1 or 2): 2
+   ```
 
-Enter your choice (1 or 2): 2
+3. Provide:
 
-Provide the paths:
+   * 🔒 Encrypted file path (e.g., `secret.aes`)
+   * 💾 Output file path (e.g., `restored.txt`)
+   * 🔑 Password used during encryption
 
-Input encrypted file: The full path to the encrypted file (e.g., my_secret_data.txt.enc). ⬅️🔒
+4. ✅ Success message:
 
-Output file: The desired name and path for the decrypted file. Make sure it has the original file's extension if you want to open it correctly (e.g., my_recovered_data.txt). 💾📄
+   ```
+   File decrypted successfully: restored.txt
+   ```
 
-Enter your password:
+---
 
-You must enter the exact same password that was used to encrypt the file. If the password is incorrect or the file is corrupted, decryption will fail with a Padding verification failed error. ❌🔑
+## ⚠️ Important Notes
 
-Example interaction:
+* 🛡️ **Password Strength**: Use long, complex, and unique passwords.
+* 🚫 **No Password Recovery**: There is no way to recover the file without the correct password.
+* 💔 **Corruption Risks**: Corrupted files or incorrect decryption attempts may cause failure.
+* 🔄 **Overwriting**: Double-check output paths to avoid overwriting important files.
+* ⏳ **Large Files**: The process may take longer for large files.
 
-Enter the path to the file to decrypt (e.g., myfile.aes): my_secret_data.txt.enc
-Enter the desired output path for the decrypted file: my_recovered_data.txt
-Enter your decryption password: mySuperSecretPassword123!
-File decrypted successfully: my_recovered_data.txt ✅
+---
 
-Important Notes
-Password Security: The security of your encrypted file directly depends on the strength of your password. Use long, complex passwords that are unique to this tool. 🛡️
+## 📄 License
 
-Lost Password: If you lose your password, the encrypted file cannot be recovered. There is no backdoor. 🚫
+This project is open-source and free to use. Licensed under the MIT License.
 
-File Integrity: Ensure the input file for decryption is not corrupted. Any corruption can lead to decryption failures. 💔
+---
 
-Overwriting Files: Be careful when specifying output file paths to avoid accidentally overwriting existing files. 🔄
+## 👤 Author
 
-Performance: For very large files, the encryption/decryption process might take some time, as it reads and writes in chunks. ⏳
+Built with ❤️ by Sohail-Ansari
+
